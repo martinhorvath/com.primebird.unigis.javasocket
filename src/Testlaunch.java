@@ -1,3 +1,4 @@
+import java.io.Console;
 import java.io.IOException;
 
 public class Testlaunch {
@@ -14,6 +15,11 @@ public class Testlaunch {
 	public static void main(String[] args) throws IOException {
 		UnigisSocket socket = new UnigisSocket();
 		socket.initialize(DEFAULT_PORT, updateurl);
-		socket.listen();
+		try {
+			socket.listen();
+		}
+		catch (Exception ex) {
+			System.out.println("Listening failed... " + ex.getMessage());
+		}
 	}
 }
